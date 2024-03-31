@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Replace Environment Variables
-        uses: franzbischoff/replace_envs@v1.4.0
+        uses: franzbischoff/replace_envs@v2
         with:
           FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
           FB_PRIVATE_KEY: ${{ secrets.FB_PRIVATE_KEY }}

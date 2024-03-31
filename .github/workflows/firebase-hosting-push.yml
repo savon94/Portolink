@@ -15,6 +15,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: ${{ secrets.FB_PROJECT_ID }}
+          channelId: 'pr-${{ github.event.number }}-${{ github.event.pull_request.head.ref }}'
           target: production # Optional, defaults to 'production'
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks

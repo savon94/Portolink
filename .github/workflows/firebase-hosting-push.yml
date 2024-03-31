@@ -8,17 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.4.0
-      - name: Replace Environment Variables
-        uses: franzbischoff/replace_envs@v2
-        with:
-          FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
-          FB_PRIVATE_KEY: ${{ secrets.FB_PRIVATE_KEY }}
-          FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
-          FB_SERVICE_ACCOUNT: ${{ secrets.FB_SERVICE_ACCOUNT }}
+        uses: actions/checkout@v3
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          projectId: ${{ env.FB_PROJECT_ID }}
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          target: production # Optional, defaults to 'production'
+        env:
+          FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
+          FB_PRIVATE_KEY: ${{ secrets.FB_PRIVATE_KEY }}
+          FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
+          FB_SERVICE_ACCOUNT: ${{ secrets.FB_SERVICE_ACCOUNT }}

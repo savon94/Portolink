@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm install 
+        run: npm ci && npm run build
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@79b1a830a9ae85409cb38056dd7761f6f1cb83fd
         with:
@@ -27,3 +27,4 @@ jobs:
           FB_PRIVATE_KEY: '${{ secrets.FB_PRIVATE_KEY }}'
           FB_PROJECT_ID: "${{ secrets.FB_PROJECT_ID }}"
           FB_SERVICE_ACCOUNT: "${{ secrets.FB_SERVICE_ACCOUNT }}"
+        

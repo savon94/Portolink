@@ -1,0 +1,27 @@
+name: Deploy to Firebase Hosting on push
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  deploy_to_firebase_hosting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Replace Environment Variables
+        uses: franzbischoff/replace_envs@v1.4.0
+        with:
+          FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
+          FB_PRIVATE_KEY: ${{ secrets.FB_PRIVATE_KEY }}
+          FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
+          FB_SERVICE_ACCOUNT: ${{ secrets.FB_SERVICE_ACCOUNT }}
+      - name: Deploy to Firebase Hosting
+        uses: firebase/firebase-tools@master
+        with:
+          args: deploy --project=${{ env.FB_PROJECT_ID }} --token=${{ env.FB_PRIVATE_KEY }}
+        env:
+          FIREBASE_CLIENT_EMAIL: ${{ env.FB_CLIENT_EMAIL }}
+          FIREBASE_PRIVATE_KEY: ${{ env.FB_PRIVATE_KEY }}
+          FIREBASE_PROJECT_ID: ${{ env.FB_PROJECT_ID }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ env.FB_SERVICE_ACCOUNT }}

@@ -17,7 +17,7 @@ jobs:
           FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
           FB_SERVICE_ACCOUNT: ${{ secrets.FB_SERVICE_ACCOUNT }}
       - name: Deploy to Firebase Hosting
-        uses: firebase/firebase-tools@latest
+        uses: firebase/firebase-tools@10.5.0
         with:
           args: deploy --project=${{ env.FB_PROJECT_ID }} --token=${{ env.FB_PRIVATE_KEY }}
         env:

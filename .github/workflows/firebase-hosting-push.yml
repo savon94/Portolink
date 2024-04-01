@@ -14,6 +14,7 @@ jobs:
           npm ci
           npm install 
           npm install -g firebase-tools
+          npm i -D @sveltejs/adapter-node@next
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@79b1a830a9ae85409cb38056dd7761f6f1cb83fd
         with:

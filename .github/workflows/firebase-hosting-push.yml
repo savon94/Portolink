@@ -17,7 +17,6 @@ jobs:
           npm i -D @sveltejs/adapter-node
           npm install -D @tsconfig/svelte
           npm run build
-          npx @sveltejs/kit sync
         env:   
           FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
           FB_PRIVATE_KEY: "${{ secrets.FB_PRIVATE_KEY }}"

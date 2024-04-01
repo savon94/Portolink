@@ -10,7 +10,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm install 
+        run: |
+          npm ci
+          npm install 
+          npm install -g firebase-tools@13.6.0
+          npm i -D @sveltejs/adapter-node
+          npm install -D @tsconfig/svelte
+          npm run build
+        env:   
+          FB_CLIENT_EMAIL: ${{ secrets.FB_CLIENT_EMAIL }}
+          FB_PRIVATE_KEY: "${{ secrets.FB_PRIVATE_KEY }}"
+          FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
+          FB_SERVICE_ACCOUNT: ${{ secrets.FB_SERVICE_ACCOUNT }}
+          
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@79b1a830a9ae85409cb38056dd7761f6f1cb83fd
         with:

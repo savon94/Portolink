@@ -29,7 +29,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTOLINK_5F8BE }}'
           projectId: ${{ secrets.FB_PROJECT_ID }}
-          channelId: live
+          channelId: 'just for testing sav on'
           
 
           #target: production # Optional, defaults to 'production'

@@ -15,7 +15,9 @@ jobs:
           npm install 
           npm install -g firebase-tools@13.6.0
           npm i -D @sveltejs/adapter-node
+          npm install -D @tsconfig/svelte
           npm run build
+          svelte-kit sync
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@79b1a830a9ae85409cb38056dd7761f6f1cb83fd
         with:

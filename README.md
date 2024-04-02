@@ -12,7 +12,9 @@ This repostiory use github action for automated deployment to Firebase
 
 ## Dependency 
 npm i firebase
+
 npm i -D daisyui@latest
+
 npm install -D tailwindcss postcss autoprefixer
 
 ```bash

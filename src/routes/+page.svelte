@@ -4,10 +4,7 @@
 
 <svelte:head>
     <title>portolink</title>
-    <meta
-        name="description"
-        content="Demo project for the Full SvelteKit Course by Fireship"
-    />
+    <meta name="description" content="linktree clone for web dev study" />
 </svelte:head>
 
 <main class="flex w-full min-h-screen">

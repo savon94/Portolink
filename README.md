@@ -22,5 +22,5 @@ npm run build
 ```
 
 ## Preview
-https://portolink-5f8be.web.app
+https://portolink-5f8be.firebaseapp.com/
 
